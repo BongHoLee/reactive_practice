@@ -18,11 +18,19 @@ class Helper {
             return future
         }
 
-        fun completionStage(): CompletionStage<Int> {
+        fun runningStage(): CompletionStage<Int> {
             return CompletableFuture.supplyAsync {
                 Thread.sleep(1000)
                 log.info("I'm Running")
 
+                1
+            }
+        }
+
+        fun completionStage() : CompletionStage<Int> {
+            return CompletableFuture.supplyAsync {
+                Thread.sleep(1000)
+                log.info("I'm running")
                 1
             }
         }
